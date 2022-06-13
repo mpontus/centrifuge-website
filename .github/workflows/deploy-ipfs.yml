@@ -19,12 +19,6 @@ jobs:
           name: centrifuge-website
           authToken: "${{ secrets.CACHIX_AUTH_TOKEN }}"
 
-      - name: Setup upterm session
-        uses: lhotari/action-upterm@v1
-        with:
-          limit-access-to-actor: true
-          limit-access-to-users: mpontus
-
       - name: build
         id: build
         run: |
