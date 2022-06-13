@@ -40,8 +40,11 @@
             buildInputs = old.buildInputs
               ++ (with pkgs; [ python3 vips pkg-config ]);
             preConfigure = ''
+              echo "RUNNING PRE-CONFIGURE"
               yarn install --immutable --immutable-cache --mode=skip-build
+              echo "DEPENDENCIES INSTALLED WITHOUT BUILD"
               patchShebangs node_modules
+              ls node_modules node_modules/.bin
             '';
             buildPhase = "yarn gatsby build";
             installPhase = "mv public $out";
