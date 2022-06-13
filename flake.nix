@@ -46,7 +46,7 @@
               patchShebangs node_modules
               ls node_modules node_modules/.bin
             '';
-            buildPhase = "yarn gatsby build";
+            buildPhase = "yarn gatsby build --prefix-paths";
             installPhase = "mv public $out";
           };
         };
